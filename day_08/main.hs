@@ -70,7 +70,6 @@ getNbSteps (instruction:instructions) node
 parse' file = foldr lcm 1 costs
     where
         directions = head file
-        starting = Map.keys myMap |> filter (\x -> last x == 'A')
         getKeys = (filter (\x -> x !! 2 == 'A')) . Map.keys
         costs = map (getNbSteps (cycle directions)) . getKeys $ myMap
 
